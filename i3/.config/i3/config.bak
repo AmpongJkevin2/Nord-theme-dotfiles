@@ -1,0 +1,104 @@
+# --- VARIABLES (Edit these to match your system) ---
+set $mod Mod1
+# On Phone, use 'alacritty'. On PC, you might use 'kitty' or 'gnome-terminal'
+set $term alacritty 
+# On Phone, use 'firefox'. On PC, match your browser.
+set $browser firefox
+
+# --- LOOK & FEEL (The "Rice") ---
+# Font: Use a larger size (12-14) for Phone readability
+font pango:JetBrainsMono Nerd Font 13
+
+# Gaps: The space between windows (The soul of ricing)
+gaps inner 12
+gaps outer 5
+smart_gaps on
+
+# Borders: Remove title bars for a cleaner look
+default_border pixel 2
+default_floating_border pixel 2
+
+# Colors (Nord Theme - Popular for ricing)
+# class                 border  backgr. text    indicator child_border
+client.focused          #81A1C1 #81A1C1 #2E3440 #81A1C1   #81A1C1
+client.focused_inactive #4C566A #4C566A #D8DEE9 #4C566A   #4C566A
+client.unfocused        #2E3440 #2E3440 #D8DEE9 #2E3440   #2E3440
+client.urgent           #BF616A #BF616A #D8DEE9 #BF616A   #BF616A
+
+# Start picom compositor
+exec_always --no-startup-id picom --backend xrender -b
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Wallpaper (Requires 'feh' installed)
+# Create a folder ~/Pictures/wallpapers and put an image there named 'bg.jpg'
+exec_always --no-startup-id feh --bg-fill ~/wallpapers/nord/10.png
+
+# --- KEYBINDINGS (The Controls) ---
+
+# 1. Open Terminal
+bindsym $mod+Return exec $term
+
+# 2. Close Window (Important!)
+bindsym $mod+q kill
+
+# 3. App Launcher (Rofi)
+bindsym $mod+d exec "rofi -show drun -show-icons"
+
+# 4. Window Focus (Touch Friendly: Use arrow keys if you have a keyboard)
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# 5. Move Windows (Shift + Arrow)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# 6. Layouts
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# 7. Reload Config (Use this after you edit the file!)
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You press  ed the exit shortcut. Do you really want to exit i3? This wil  l end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# --- WORKSPACES ---
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+
+# --- BAR (Status Bar) ---
+# We will use the default bar for now. Later we can upgrade to Polybar.
+bar {
+        status_command i3status
+        position top
+        colors {
+            background #2E3440
+            statusline #D8DEE9
+            separator  #4C566A
+            focused_workspace  #81A1C1 #81A1C1 #2E3440
+            active_workspace   #4C566A #4C566A #D8DEE9
+            inactive_workspace #2E3440 #2E3440 #D8DEE9
+            urgent_workspace   #BF616A #BF616A #D8DEE9
+        }
+}
+

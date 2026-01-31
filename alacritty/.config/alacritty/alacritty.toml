@@ -1,0 +1,76 @@
+[font]
+size = 10.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+# ============================================
+# NORD THEME
+# ============================================
+[colors.primary]
+background = "#2E3440"
+foreground = "#D8DEE9"
+dim_foreground = "#A5ABB6"
+
+[colors.cursor]
+text = "#2E3440"
+cursor = "#D8DEE9"
+
+[colors.vi_mode_cursor]
+text = "#2E3440"
+cursor = "#D8DEE9"
+
+[colors.selection]
+text = "CellForeground"
+background = "#4C566A"
+
+[colors.search.matches]
+foreground = "CellBackground"
+background = "#88C0D0"
+
+[colors.search.focused_match]
+foreground = "CellBackground"
+background = "#88C0D0"
+
+[colors.footer_bar]
+background = "#434C5E"
+foreground = "#D8DEE9"
+
+[colors.normal]
+black = "#3B4252"
+red = "#BF616A"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+blue = "#81A1C1"
+magenta = "#B48EAD"
+cyan = "#88C0D0"
+white = "#E5E9F0"
+
+[colors.bright]
+black = "#4C566A"
+red = "#BF616A"
+green = "#A3BE8C"
+yellow = "#EBCB8B"
+blue = "#81A1C1"
+magenta = "#B48EAD"
+cyan = "#8FBCBB"
+white = "#ECEFF4"
+
+[colors.dim]
+black = "#373E4D"
+red = "#94545D"
+green = "#809575"
+yellow = "#B29E75"
+blue = "#68809A"
+magenta = "#8C738C"
+cyan = "#6D96A5"
+white = "#AEB3BB"
+
+
+#[window]
+#opacity = 0.85  # 0.0 is invisible, 1.0 is solid
